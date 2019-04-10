@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>my chart</title>
+</head>
+
+<body>
+    <div class="container"></div>
+    <canvas id="myChart"></canvas>
+
+    <script>
+        let myChart = document.getElementById('myChart').getContext('2d');
+    </script>
+
+    <script>
+        // Global Options
+        // Chart.defaults.global.defaultFontFamily = 'Lato';
+        Chart.defaults.global.defaultFontSize = 18;
+        Chart.defaults.global.defaultFontColor = '#777';
+
+        let massPopChart = new Chart(myChart, {
+            type: 'bar', // bar, horozontalbar, pie, line, polarArea
+            data: {
+                labels: ['Minneapolis', 'St.Paul', 'Rochester', 'Duluth', 'Bloomington', 'Brooklyn Park'],
+                datasets: [{
+                    label: 'Population',
+                    data: [2222, 300820, 112683, 86066, 85417, 79462],
+                    // backgroundColor: 'blue'
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(255, 159, 64, 0.6)',
+                        'rgba(255, 99, 132, 0.6)'
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#777',
+                    hoverBorderWidth: 4,
+                    hoverBorderColor: '#000'
+
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Largest Cities In Minnesota',
+                    fontsize: 25,
+                },
+                legend: {
+                    // display: false,
+                    position: 'right',
+                    labels: {
+                        fontColor: '#000'
+
+                    }
+
+                },
+                layout: {
+                    padding: {
+                        left: 50,
+                        right: 0,
+                        bottom: 0,
+                        top: 0,
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Population'
+                        }
+                    }]
+                },
+
+                tooltips: {
+                    // enabled: false
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
